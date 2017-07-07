@@ -1,20 +1,8 @@
-<h1>Ethereum</h1>
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Bootstrap Example</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-</head>
 <body>
 <br>
 <br>
+
 
 <center><ul class="pagination">
     <li><a href="/">1</a></li>
@@ -37,6 +25,9 @@
     <li><a href="/page18">18</a></li>
 </ul></center>
 
+
+
+
 <div class="container">
     <table class="table table-striped">
         <thead>
@@ -45,10 +36,15 @@
             <th>Price</th>
             <th>Total Market Cap Value</th>
             <th>Transactions</th>
+            <th>Delete</th>
 
 
         </tr>
         </thead>
+
+        <script>
+            moment({{this.timestamp}}).format('YYYY MM DD');
+        </script>
 
         <tbody>
 
@@ -61,7 +57,13 @@
                 <td>${{this.market-cap-value}}</td>
                 <td>{{this.transactions}}</td>
 
+                <td><form action="/delete/" method="POST">
+                    <input type="hidden" name="timestamp" value="{{this.timestamp}}" />
+                    <button type="submit">X</button>
+                </form></td>
+
             </tr>
+
 
         {{/each}}
 
@@ -69,6 +71,24 @@
         </tbody>
 
     </table>
+
+    <form method="post" action="">
+        <table class="table">
+            <input type="hidden" name="id" value="{{this.timestamp}}"/>
+
+
+            <tr>
+                <td><input type="date" name="date" placeholder="Date"></td>
+                <td><input type="text" name="price" placeholder="Price"></td>
+                <td><input type="text" name="marketCap" placeholder="Total Market Cap Value"></td>
+                <td><input type="text" name="transactions" placeholder="Transactions"></td>
+            </tr>
+        </table>
+        <div>
+            <center><input type="submit" name="Save"/></center>
+        </div>
+    </form>
+
 </div>
 
 

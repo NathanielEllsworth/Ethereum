@@ -3,6 +3,10 @@
 Front End
 ![](/README_Images/UI_Data_Display.png)
 
+
+Working on Timestamp to Date
+![](/README_Images/UnixToJS.png)
+
 **Have fun with this assignment - we have crafted it specially for full time - Use this to integrate your knowledge from the past few weeks, and make an awesome portfolio piece. Use you passion to share your mad skillz!**
 
 ### Overview
